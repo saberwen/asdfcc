@@ -1,0 +1,142 @@
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.function ==
+/* 
+ *  FunctionName:  |?FUNCTION_NAME|
+ *  Description:  
+ */
+int <CURSOR>|FUNCTION_NAME|( void )
+{
+<SPLIT>	
+}		/* -----  end of function |FUNCTION_NAME|  ----- */
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.function-static ==
+/* 
+ *  FunctionName:  |?FUNCTION_NAME|
+ *  Description:  
+ */
+static int<CURSOR>|FUNCTION_NAME|( void )
+{
+<SPLIT>	
+}		/* -----  end of static function |FUNCTION_NAME|  ----- */
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.main ==
+$#include <stdio.h>
+$#include <stdlib.h>
+
+/* 
+ *  FunctionName: main 
+ *  Description:  
+ */
+int main( int argc, char *argv[] )
+{<CURSOR>
+
+<SPLIT>	return EXIT_SUCCESS;
+}				/* ----------  end of function main  ---------- */
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.enum ==
+typedef enum |?ENUM_NAME| {<CURSOR>
+<SPLIT>}|ENUM_NAME:c|;				/* ----------  end of enum |ENUM_NAME|  ---------- */
+
+$typedef enum |ENUM_NAME| |ENUM_NAME:c|; /*wwc - 1130*/ 
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.struct ==
+typedef struct |?STRUCT_NAME| {<CURSOR>
+<SPLIT>}|STRUCT_NAME:c|;				/* ----------  end of struct |STRUCT_NAME|  ---------- */
+
+$typedef struct |STRUCT_NAME| |STRUCT_NAME:c|; /*wwc - 1130*/ 
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.union ==
+typedef union |?UNION_NAME| {<CURSOR>
+<SPLIT>};				/* ----------  end of union |UNION_NAME|  ---------- */
+
+$typedef union |UNION_NAME| |UNION_NAME:c|; /*wwc - 1130*/ 
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.printf == insert ==
+printf( "<CURSOR>\n" );
+== idioms.scanf == insert ==
+scanf( "<CURSOR>", & );
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$== idioms.calloc ==
+$|?POINTER|	= calloc ( (size_t)(<CURSOR><+COUNT+>), sizeof(<+TYPE+>) );
+$if ( |POINTER|==NULL ) {
+$	fprintf( stderr, "\ndynamic memory allocation failed\n" );
+$	exit(EXIT_FAILURE);
+$}
+$
+$free (|POINTER|);
+$|POINTER|	= NULL;
+
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$== idioms.malloc ==
+$|?POINTER|	= malloc ( sizeof(<CURSOR><+TYPE+>) );
+$if ( |POINTER|==NULL ) {
+$	fprintf( stderr, "\ndynamic memory allocation failed\n" );
+$	exit(EXIT_FAILURE);
+$}
+$
+$free (|POINTER|);
+$|POINTER|	= NULL;
+
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$== idioms.realloc ==
+$|?POINTER|	= realloc ( |POINTER|, sizeof(<CURSOR><+TYPE+>) );
+$if ( |POINTER|==NULL ) {
+$	fprintf( stderr, "\ndynamic memory reallocation failed\n" );
+$	exit(EXIT_FAILURE);
+$}
+
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.sizeof == insert ==
+sizeof(<CURSOR><SPLIT>)
+== idioms.assert == insert ==
+assert(<CURSOR><SPLIT>);
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.open-input-file ==
+FILE	*|?FILEPOINTER|;					
+char	*|FILEPOINTER|_file_name = "<CURSOR>";
+
+|FILEPOINTER|	= fopen( |FILEPOINTER|_file_name, "r" );
+if ( |FILEPOINTER| == NULL ) 
+{
+	fprintf( stderr, "couldn't open file '%s'; %s\n",
+			|FILEPOINTER|_file_name, strerror(errno) );
+	exit(EXIT_FAILURE);
+}
+<SPLIT>{-continue here-}
+fwrite(const void* ptr, size_t size, size_t nmemb, FILE *stream);
+fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+if( fclose(|FILEPOINTER|) == EOF ) 	/* close input file   */
+{
+	fprintf( stderr, "couldn't close file '%s'; %s\n",
+			|FILEPOINTER|_file_name, strerror(errno) );
+	exit(EXIT_FAILURE);
+}
+
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.open-output-file ==
+FILE	*|?FILEPOINTER|;
+char	*|FILEPOINTER|_file_name = "<CURSOR>";
+
+|FILEPOINTER|	= fopen( |FILEPOINTER|_file_name, "w" );
+if ( |FILEPOINTER| == NULL ) 
+{
+	fprintf( stderr, "couldn't open file '%s'; %s\n",
+			|FILEPOINTER|_file_name, strerror(errno) );
+	exit(EXIT_FAILURE);
+}
+<SPLIT>{-continue here-}
+fwrite(const void* ptr, size_t size, size_t nmemb, FILE *stream);
+fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+if( fclose(|FILEPOINTER|) == EOF )	/* close output file   */
+{
+	fprintf( stderr, "couldn't close file '%s'; %s\n",
+			|FILEPOINTER|_file_name, strerror(errno) );
+	exit(EXIT_FAILURE);
+}
+
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.fprintf == insert ==
+fprintf ( |?FILEPOINTER|, "<CURSOR>\n",  );
+== idioms.fscanf == insert ==
+fscanf ( |?FILEPOINTER|, "<CURSOR>", & );
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

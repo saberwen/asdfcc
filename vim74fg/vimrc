@@ -220,14 +220,18 @@ nnoremap <F7> :call F7_Toggle_Count()<CR>
 function F7_Toggle_Count()
 	let g:f7_toggle_count = (g:f7_toggle_count + 1) % 10
 	if g:f7_toggle_count % 2
-		exec "echo 'map TAB -> bnext'"
+		exec "echo 'map TAB -> bnext' ' <<< ENABLE mouse.'"
 		nnoremap <TAB>         :bnext<CR>
 		nnoremap <Space><TAB> :bprevious<CR>
+		set mouse=a
+		set nu
 		return
 	else
-		exec "echo 'map TAB -> tabnext'"
+		exec "echo 'map TAB -> tabnext' ' <<< DISABLE mouse.'"
 		nnoremap <TAB>         :tabnext<CR>
 		nnoremap <Space><TAB> :tabprev<CR>
+		set mouse=
+		set nonu
 		return
 	endif
 endfunction

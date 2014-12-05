@@ -34,10 +34,10 @@ let g:colors_name="cGreenEyes"
 	hi  VisualNOS     cterm=NONE       ctermfg=NONE            ctermbg=194          guibg=#D7FFD7     guifg=NONE
 	hi  Visual        cterm=NONE       ctermfg=NONE            ctermbg=118          guibg=#87FF00     guifg=NONE
 
-	hi  DiffAdd       cterm=BOLD       ctermfg=202             ctermbg=NONE         guibg=NONE     guifg=#FF5F00
-	hi  DiffChange    cterm=NONE       ctermfg=244             ctermbg=230     guibg=#FFFFD7     guifg=#808080
-	hi  DiffDelete    cterm=BOLD       ctermfg=247             ctermbg=NONE          guibg=NONE     guifg=#9E9E9E
-	hi  DiffText      cterm=NONE       ctermfg=NONE            ctermbg=222          guibg=#FFD787     guifg=NONE
+	hi  DiffAdd       cterm=BOLD       ctermfg=082             ctermbg=240         guibg=NONE     guifg=#FF5F00
+	hi  DiffChange    cterm=BOLD       ctermfg=244             ctermbg=230     guibg=#FFFFD7     guifg=#808080
+	hi  DiffDelete    cterm=BOLD       ctermfg=247             ctermbg=240          guibg=NONE     guifg=#9E9E9E
+	hi  DiffText      cterm=BOLD       ctermfg=NONE            ctermbg=222          guibg=#FFD787     guifg=NONE
 
 	hi  Boolean       cterm=BOLD       ctermfg=BLUE            ctermbg=194          guibg=#D7FFD7     guifg=BLUE
 	hi  Character     cterm=NONE       ctermfg=NONE            ctermbg=blue          guibg=blue     guifg=NONE

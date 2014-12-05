@@ -44,6 +44,8 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 <CURSOR>
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description-header == start ==
